@@ -20,8 +20,9 @@ script:
   # Run tests.
   - ${PWD}/tests/test.sh
 
-  # Test whether Docker is running correctly (Dockerception!).
-  - docker exec --tty ${container_id} docker run hello-world
+  # Test whether docker-py is installed at the specified version.
+  - docker exec --tty ${container_id} pip list installed | grep -e '^ipaddress.*1\.0\.18.*$'
+  - docker exec --tty ${container_id} pip list installed | grep '^colorama'
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/

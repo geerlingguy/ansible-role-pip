@@ -17,11 +17,14 @@ Available variables are listed below, along with default values (see `defaults/m
 A list of packages to install with pip. Examples below:
 
     pip_install_packages:
-      # Specify a name and version.
+      # Specify names and versions.
       - name: docker-py
-        version: 1.2.3
-      # Or specify a package by itself.
+        version: "1.2.3"
+      - name: awscli
+        version: "1.11.91"
+      # Or specify bare packages to get the latest release.
       - docker-py
+      - awscli
 
 ## Dependencies
 
