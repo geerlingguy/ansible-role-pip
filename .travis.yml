@@ -20,7 +20,7 @@ script:
   # Run tests.
   - ${PWD}/tests/test.sh
 
-  # Test whether docker-py is installed at the specified version.
+  # Test whether packages are installed as specified.
   - docker exec --tty ${container_id} pip list installed | grep -e '^ipaddress.*1\.0\.18.*$'
   - docker exec --tty ${container_id} pip list installed | grep '^colorama'
 

@@ -18,12 +18,12 @@ A list of packages to install with pip. Examples below:
 
     pip_install_packages:
       # Specify names and versions.
-      - name: docker-py
+      - name: docker
         version: "1.2.3"
       - name: awscli
         version: "1.11.91"
       # Or specify bare packages to get the latest release.
-      - docker-py
+      - docker
       - awscli
 
 ## Dependencies
