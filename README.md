@@ -6,7 +6,7 @@ An Ansible Role that installs [Pip](https://pip.pypa.io) on Linux.
 
 ## Requirements
 
-None.
+On RedHat/CentOS, you may need to have EPEL installed before running this role. You can use the `geerlingguy.repo-epel` role if you need a simple way to ensure it's installed.
 
 ## Role Variables
 
