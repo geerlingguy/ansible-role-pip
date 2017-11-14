@@ -1,2 +1,3 @@
 ---
+pip_package_name: python-pip
 pip_install_packages: []
