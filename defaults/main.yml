@@ -1,3 +1,5 @@
 ---
-pip_package_name: python-pip
+# For Python 3, use python3-pip.
+pip_package: python-pip
+
 pip_install_packages: []

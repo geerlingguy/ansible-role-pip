@@ -1,7 +1,7 @@
 ---
 - name: Ensure Pip is installed.
   package:
-    name: "{{pip_package_name}}"
+    name: "{{ pip_package }}"
     state: present
 
 - name: Ensure pip_install_packages are installed.

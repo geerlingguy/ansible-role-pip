@@ -12,19 +12,13 @@ On RedHat/CentOS, you may need to have EPEL installed before running this role. 
 
 Available variables are listed below, along with default values (see `defaults/main.yml`):
 
-The name of the packge to install to get `pip` on the system.
+    pip_package: python-pip
 
-    pip_package_name: python-pip
-
-For example:
-
-    pip_package_name: python3-pip
-
-A list of packages to install with pip.
+The name of the packge to install to get `pip` on the system. You can set to `python3-pip`, for example, when using Python 3 on Ubuntu.
 
     pip_install_packages: []
 
-Examples below:
+A list of packages to install with pip. Examples below:
 
     pip_install_packages:
       # Specify names and versions.
@@ -32,19 +26,19 @@ Examples below:
         version: "1.2.3"
       - name: awscli
         version: "1.11.91"
-
+    
       # Or specify bare packages to get the latest release.
       - docker
       - awscli
-
+    
       # Or uninstall a package.
       - name: docker
         state: absent
-
+    
       # Or update a package ot the latest version.
       - name: docker
         state: latest
-
+    
       # Or force a reinstall.
       - name: docker
         state: forcereinstall
