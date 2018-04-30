@@ -8,5 +8,6 @@
   pip:
     name: "{{ item.name | default(item) }}"
     version: "{{ item.version | default(omit) }}"
+    virtualenv: "{{ item.virtualenv | default(omit) }}"
     state: "{{ item.state | default(omit) }}"
   with_items: "{{ pip_install_packages }}"
