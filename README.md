@@ -42,6 +42,10 @@ A list of packages to install with pip. Examples below:
       # Or force a reinstall.
       - name: docker
         state: forcereinstall
+    
+      # Or install a package in a particular virtualenv.
+      - name: docker
+        virtualenv: /my_app/venv
 
 ## Dependencies
 
@@ -50,6 +54,12 @@ None.
 ## Example Playbook
 
     - hosts: all
+    
+      vars:
+        pip_install_packages:
+          - name: docker
+          - name: awscli
+    
       roles:
         - geerlingguy.pip
 
