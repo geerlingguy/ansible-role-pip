@@ -14,9 +14,13 @@ Available variables are listed below, along with default values (see `defaults/m
 
     pip_package: python-pip
 
-The name of the packge to install to get `pip` on the system. You can set to `python3-pip`, for example, when using Python 3 on Ubuntu.
+The name of the package to install to get `pip` on the system. You can set to `python3-pip`, for example, when using Python 3 on Ubuntu.
 
     pip_install_packages: []
+
+The state of the `pip_package`: `present`, `absent` or `latest`. For additional [details](https://docs.ansible.com/ansible/latest/modules/package_module.html).
+
+    pip_state: present
 
 A list of packages to install with pip. Examples below:
 
@@ -26,26 +30,35 @@ A list of packages to install with pip. Examples below:
         version: "1.2.3"
       - name: awscli
         version: "1.11.91"
-    
+
       # Or specify bare packages to get the latest release.
       - docker
       - awscli
-    
+
       # Or uninstall a package.
       - name: docker
         state: absent
-    
+
       # Or update a package ot the latest version.
       - name: docker
         state: latest
-    
+
       # Or force a reinstall.
       - name: docker
         state: forcereinstall
-    
+
       # Or install a package in a particular virtualenv.
       - name: docker
         virtualenv: /my_app/venv
+
+      # Or upgrade the package to the latest version, in a particular virtualenv.
+      - name: docker
+        virtualenv: /my_app/venv
+        extra_args: '--upgrade'
+
+      # Or use an specific pip version.
+      - name: docker
+        executable: pip3.4
 
 ## Dependencies
 
@@ -54,12 +67,12 @@ None.
 ## Example Playbook
 
     - hosts: all
-    
+
       vars:
         pip_install_packages:
           - name: docker
           - name: awscli
-    
+
       roles:
         - geerlingguy.pip
 

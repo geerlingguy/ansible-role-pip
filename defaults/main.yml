@@ -3,3 +3,5 @@
 pip_package: python-pip
 
 pip_install_packages: []
+
+pip_state: present
