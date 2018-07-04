@@ -2,6 +2,7 @@
 dependencies: []
 
 galaxy_info:
+  role_name: pip
   author: geerlingguy
   description: Pip (Python package manager) for Linux.
   issue_tracker_url: https://github.com/geerlingguy/ansible-role-pip/issues
