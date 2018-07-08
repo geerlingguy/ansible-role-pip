@@ -11,7 +11,7 @@ env:
 
 matrix:
   allow_failures:
-    - distro: ubuntu1404
+    - env: distro=ubuntu1404
 
 script:
   # Configure test script so we can run extra tests after playbook is run.
