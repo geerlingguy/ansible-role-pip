@@ -4,6 +4,13 @@
     name: "{{ pip_package }}"
     state: present
 
+- name: Link Pip3 to pip
+  file:
+    src: "/usr/bin/pip3"
+    dest: "/usr/bin/pip"
+    state: link
+  when: pip_package == "python3-pip"
+
 - name: Ensure pip_install_packages are installed.
   pip:
     name: "{{ item.name | default(item) }}"
