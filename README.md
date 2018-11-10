@@ -18,6 +18,11 @@ The name of the packge to install to get `pip` on the system. You can set to `py
 
     pip_install_packages: []
 
+The role will try to autodetect pip executable: it will use `pip` for Python 2 and `pip3` for Python 3. You can also override this explicitly:
+
+    pip_executable: pip3.6
+
+
 A list of packages to install with pip. Examples below:
 
     pip_install_packages:
