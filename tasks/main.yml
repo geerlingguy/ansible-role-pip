@@ -1,4 +1,10 @@
 ---
+- name: Wait for yum lock to be cleared
+  wait_for:
+    path: /var/run/yum.pid
+    state: absent
+  when: ansible_os_family == 'RedHat'
+
 - name: Ensure Pip is installed.
   package:
     name: "{{ pip_package }}"
