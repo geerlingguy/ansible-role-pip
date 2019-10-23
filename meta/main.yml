@@ -7,8 +7,8 @@ galaxy_info:
   description: Pip (Python package manager) for Linux.
   issue_tracker_url: https://github.com/geerlingguy/ansible-role-pip/issues
   company: "Midwestern Mac, LLC"
-  license: "license (BSD, MIT)"
-  min_ansible_version: 2.0
+  license: "MIT"
+  min_ansible_version: 2.4
   platforms:
     - name: EL
       versions:
