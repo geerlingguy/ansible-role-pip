@@ -12,3 +12,5 @@
     state: "{{ item.state | default(omit) }}"
     executable: "{{ pip_executable }}"
   with_items: "{{ pip_install_packages }}"
+  become: "{{ pip_become | default(omit) }}"
+  become_user: "{{ pip_become_user | default(omit) }}"
