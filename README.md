@@ -30,7 +30,11 @@ A list of packages to install with pip. Examples below:
         version: "1.2.3"
       - name: awscli
         version: "1.11.91"
-    
+
+      # Or pass extra arguments to the command
+      - name: setuptools
+        extra_args: "--upgrade"
+
       # Or specify bare packages to get the latest release.
       - docker
       - awscli
