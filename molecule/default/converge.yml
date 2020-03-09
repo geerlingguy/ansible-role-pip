@@ -10,6 +10,9 @@
         version: "1.0.18"
       # Test installing a package by name.
       - colorama
+      # Test installing a package with extra arguments
+      - name: setuptools
+        extra_args: "--upgrade"
 
   pre_tasks:
     - name: Update apt cache.
