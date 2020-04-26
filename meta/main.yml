@@ -22,6 +22,10 @@ galaxy_info:
     - name: Ubuntu
       versions:
         - all
+    - name: CentOS
+      versions:
+        - 7
+        - 8
   galaxy_tags:
     - system
     - server
