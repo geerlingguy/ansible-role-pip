@@ -3,6 +3,7 @@
   package:
     name: "{{ pip_package }}"
     state: present
+    update_cache: yes
 
 - name: Ensure pip_install_packages are installed.
   pip:
