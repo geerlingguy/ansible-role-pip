@@ -12,11 +12,11 @@ On RedHat/CentOS, you may need to have EPEL installed before running this role. 
 
 Available variables are listed below, along with default values (see `defaults/main.yml`):
 
-    pip_package: python-pip
+    pip_package: python3-pip
 
-The name of the packge to install to get `pip` on the system. You can set to `python3-pip`, for example, when using Python 3 on Ubuntu.
+The name of the packge to install to get `pip` on the system. For older systems that don't have Python 3 available, you can set this to `python-pip`.
 
-    pip_executable: pip
+    pip_executable: pip3
 
 The role will try to autodetect the pip executable based on the `pip_package` (e.g. `pip` for Python 2 and `pip3` for Python 3). You can also override this explicitly, e.g. `pip_executable: pip3.6`.
 
