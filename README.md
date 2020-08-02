@@ -16,6 +16,10 @@ Available variables are listed below, along with default values (see `defaults/m
 
 The name of the packge to install to get `pip` on the system. For older systems that don't have Python 3 available, you can set this to `python-pip`.
 
+    pip_umask: '0022' # Default is to omit the parameter
+
+The system umask to apply before installing the pip packages.
+
     pip_executable: pip3
 
 The role will try to autodetect the pip executable based on the `pip_package` (e.g. `pip` for Python 2 and `pip3` for Python 3). You can also override this explicitly, e.g. `pip_executable: pip3.6`.

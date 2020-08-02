@@ -11,4 +11,5 @@
     virtualenv: "{{ item.virtualenv | default(omit) }}"
     state: "{{ item.state | default(omit) }}"
     executable: "{{ pip_executable }}"
+    umask: "{{ pip_umask | default(omit) }}"
   with_items: "{{ pip_install_packages }}"
