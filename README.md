@@ -1,6 +1,6 @@
 # Ansible Role: Pip (for Python)
 
-[![Build Status](https://travis-ci.com/geerlingguy/ansible-role-pip.svg?branch=master)](https://travis-ci.com/geerlingguy/ansible-role-pip)
+[![CI](https://github.com/geerlingguy/ansible-role-pip/workflows/CI/badge.svg?event=push)](https://github.com/geerlingguy/ansible-role-pip/actions?query=workflow%3ACI)
 
 An Ansible Role that installs [Pip](https://pip.pypa.io) on Linux.
 
