@@ -39,7 +39,7 @@ A list of packages to install with pip. Examples below:
       - name: docker
         state: absent
     
-      # Or update a package ot the latest version.
+      # Or update a package to the latest version.
       - name: docker
         state: latest
     
