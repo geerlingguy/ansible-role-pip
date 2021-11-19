@@ -8,18 +8,20 @@
   package:
     name: "{{ pip_virtualenv_packages }}"
     state: present
-  when: (pip_virtualenv is defined or pip_install_packages | map(attribute='virtualenv') | select('defined') | length > 0)
+  when: (pip_virtualenv is defined
+        or pip_install_packages | map(attribute='virtualenv') | select('defined') | length > 0)
 
 - name: Ensure pip_install_packages are installed.
   pip:
     name: "{{ item.name | default(item) }}"
     version: "{{ item.version | default(omit) }}"
-    state: "{{ item.state if item.state is defined else pip_state | default(omit) }}"
+    state: "{{ item.state | default(pip_state | default(omit)) }}"
     executable: "{{ pip_executable if item.virtualenv is not defined and pip_virtualenv is not defined else omit }}"
-    umask: "{{ item.umask if item.umask is defined else pip_umask | default(omit) }}"
-    virtualenv: "{{ item.virtualenv if item.virtualenv is defined else pip_virtualenv | default(omit) }}"
-    virtualenv_command: "{{ item.virtualenv_command if item.virtualenv_command is defined else pip_virtualenv_command | default(omit) }}"
-    virtualenv_python: "{{ item.virtualenv_python if item.virtualenv_python is defined else pip_virtualenv_python | default(omit) }}"
-    virtualenv_site_packages: "{{ item.virtualenv_site_packages is defined | ternary(item.virtualenv_site_packages, pip_virtualenv_site_packages) | default(omit) }}"
-    extra_args: "{{ item.extra_args if item.extra_args is defined else pip_extra_args | default(omit) }}"
+    umask: "{{ item.umask | default(pip_umask | default(omit)) }}"
+    virtualenv: "{{ item.virtualenv | default(pip_virtualenv | default(omit)) }}"
+    virtualenv_command: "{{ item.virtualenv_command | default(pip_virtualenv_command | default(omit)) }}"
+    virtualenv_python: "{{ item.virtualenv_python | default(pip_virtualenv_python | default(omit)) }}"
+    # yamllint disable-line rule:line-length
+    virtualenv_site_packages: "{{ item.virtualenv_site_packages | default(pip_virtualenv_site_packages | default(omit)) }}"
+    extra_args: "{{ item.extra_args | default(pip_extra_args | default(omit)) }}"
   loop: "{{ pip_install_packages }}"

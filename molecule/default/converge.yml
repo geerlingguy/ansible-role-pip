@@ -52,7 +52,6 @@
       - name: pip-install-test
         version: 0.5.0
         virtualenv: /yetanothervenv
-        virtualenv_command: python3 -m venv
 
   pre_tasks:
     - name: Update apt cache.

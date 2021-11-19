@@ -3,7 +3,7 @@
 pip_package: python3-pip
 pip_executable: "{{ 'pip3' if pip_package.startswith('python3') else 'pip' }}"
 
-pip_virtualenv_packages: 
+pip_virtualenv_packages:
   - virtualenv
 
 pip_install_packages: []
