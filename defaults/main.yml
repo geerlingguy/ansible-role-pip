@@ -1,6 +1,9 @@
 ---
-# For Python 3, use python3-pip.
+# For Python 2, use python-pip.
 pip_package: python3-pip
 pip_executable: "{{ 'pip3' if pip_package.startswith('python3') else 'pip' }}"
+
+pip_virtualenv_packages: 
+  - virtualenv
 
 pip_install_packages: []
