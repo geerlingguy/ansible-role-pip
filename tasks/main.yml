@@ -12,3 +12,4 @@
     state: "{{ item.state | default(omit) }}"
     executable: "{{ pip_executable }}"
   loop: "{{ pip_install_packages }}"
+  environment: "{{ pip_environment_variables }}"

@@ -51,6 +51,14 @@ A list of packages to install with pip. Examples below:
       - name: docker
         virtualenv: /my_app/venv
 
+To pass environment variables to `pip` use `pip_environment_variables`. (This is usefull for proxy configuration)
+
+```
+pip_environment_variables: 
+   http_proxy: "proxy.example.com"
+```
+
+
 ## Dependencies
 
 None.
