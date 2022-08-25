@@ -51,6 +51,10 @@ A list of packages to install with pip. Examples below:
       - name: docker
         virtualenv: /my_app/venv
 
+      # Or pass through any extra arguments.
+      - name: my_special_package_from_my_special_repo
+        extra_args: --extra-index-url https://my-domain/pypi/pypi-master/simple
+
 ## Dependencies
 
 None.
