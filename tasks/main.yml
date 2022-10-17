@@ -1,8 +1,15 @@
 ---
-- name: Ensure Pip is installed.
+- name: Ensure Pip is installed (linux)
   package:
     name: "{{ pip_package }}"
     state: present
+  when: ansible_facts["os_family"] != "Darwin"
+
+- name: Ensure Pip is installed (Mac)
+  package:
+    name: python
+    state: present
+  when: ansible_facts["os_family"] == "Darwin"
 
 - name: Ensure pip_install_packages are installed.
   pip:
