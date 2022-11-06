@@ -1,4 +1,9 @@
 ---
+- name: Update APT repositories.
+  ansible.builtin.apt:
+    update_cache: yes
+  when: ansible_facts['distribution'] == "Debian"
+
 - name: Ensure Pip is installed.
   package:
     name: "{{ pip_package }}"
