@@ -3,7 +3,7 @@
   ansible.builtin.apt:
     update_cache: yes
   when: ansible_facts['os_family'] == "Debian" and
-        pip_sync_repospip_sync_repos is true
+        pip_sync_repos is true
 
 - name: Ensure Pip is installed.
   package:
