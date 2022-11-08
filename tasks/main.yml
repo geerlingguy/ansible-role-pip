@@ -6,12 +6,18 @@
         pip_sync_repos is true
 
 - name: Ensure Pip is installed.
-  package:
+  ansible.builtin.package:
     name: "{{ pip_package }}"
     state: present
 
+- name: Update pip to latest version.
+  ansible.builtin.pip:
+    name: pip
+    state: present
+    extra_args: --upgrade
+
 - name: Ensure pip_install_packages are installed.
-  pip:
+  ansible.builtin.pip:
     name: "{{ item.name | default(item) }}"
     version: "{{ item.version | default(omit) }}"
     virtualenv: "{{ item.virtualenv | default(omit) }}"
