@@ -8,11 +8,8 @@ galaxy_info:
   issue_tracker_url: https://github.com/geerlingguy/ansible-role-pip/issues
   company: "Midwestern Mac, LLC"
   license: "MIT"
-  min_ansible_version: 2.4
+  min_ansible_version: 2.10
   platforms:
-    - name: EL
-      versions:
-        - all
     - name: Fedora
       versions:
         - all
