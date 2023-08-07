@@ -1,4 +1,17 @@
 ---
+# Remove EXTERNALLY-MANAGED file if we're on Debian12
+# Related issue: https://github.com/geerlingguy/ansible-role-pip/issues/57
+- name: get python3 version installed
+  ansible.builtin.command: python3 --version
+  register: py3ver
+  when: ansible_distribution == "Debian" and ansible_distribution_version == "12"
+
+- name: remove EXTERNALLY-MANAGED if we're on debian12
+  ansible.builtin.file:
+    path: /usr/lib/python3.11/EXTERNALLY-MANAGED
+    state: absent
+  when: py3ver is defined and py3ver.stdout.find("3.11") != -1
+
 - name: Ensure Pip is installed.
   package:
     name: "{{ pip_package }}"
