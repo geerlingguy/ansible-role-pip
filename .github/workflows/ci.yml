@@ -44,8 +44,9 @@ jobs:
           - rockylinux8
           - fedora34
           - ubuntu2004
-          - ubuntu1804
-          - debian10
+          - ubuntu2204
+          - debian11
+          - debian12
 
     steps:
       - name: Check out the codebase.
