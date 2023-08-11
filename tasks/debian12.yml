@@ -1,3 +1,4 @@
+---
 # Remove EXTERNALLY-MANAGED file if we're on Debian12
 # Related issue: https://github.com/geerlingguy/ansible-role-pip/issues/57
 - name: Get python3 version installed
