@@ -3,7 +3,7 @@
   ansible.builtin.import_tasks: debian12.yml
   when:
     - ansible_distribution == "Debian"
-    - ansible_distribution_version == "12"
+    - ansible_distribution_major_version|int >= 12
 
 - name: Ensure Pip is installed.
   package:
