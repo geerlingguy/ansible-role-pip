@@ -14,7 +14,7 @@ Available variables are listed below, along with default values (see `defaults/m
 
     pip_package: python3-pip
 
-The name of the packge to install to get `pip` on the system. For older systems that don't have Python 3 available, you can set this to `python-pip`.
+The name of the package to install to get `pip` on the system. For older systems that don't have Python 3 available, you can set this to `python-pip`.
 
     pip_executable: pip3
 
