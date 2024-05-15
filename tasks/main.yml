@@ -6,7 +6,7 @@
   register: py3ver
   changed_when: false
 
-- name: Ensure "{{ 'absent' if not pip_externally_managed else 'present' }}" of EXTERNALLY-MANAGED
+- name: Ensure "{{ 'absent' if not pip_externally_managed else 'present' }}" of EXTERNALLY-MANAGED's Python base environments
   ansible.builtin.file:
     path: "/usr/lib/python{{ py3ver.stdout }}/EXTERNALLY-MANAGED"
     state: "{{ 'absent' if not pip_externally_managed else 'touch' }}"
