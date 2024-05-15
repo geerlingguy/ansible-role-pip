@@ -4,6 +4,7 @@
   become: true
 
   vars:
+    pip_externally_managed: false
     pip_install_packages:
       # Test installing a specific version of a package.
       - name: ipaddress
