@@ -42,7 +42,6 @@ jobs:
       matrix:
         distro:
           - rockylinux9
-          - rockylinux8
           - fedora39
           - ubuntu2404
           - ubuntu2204
