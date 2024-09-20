@@ -1,21 +1,12 @@
 ---
-# Remove EXTERNALLY-MANAGED if pip_externally_managed is true and python3 version is 3.11 or higher.
-# Related issue: https://github.com/geerlingguy/ansible-role-pip/issues/57
-- name: Get installed python3 version
-  ansible.builtin.shell: python3 --version | awk '{split($2, a, "."); print a[1] "." a[2]}'
-  register: py3ver
-  changed_when: false
-
-- name: Ensure "{{ 'absent' if not pip_externally_managed else 'present' }}" of EXTERNALLY-MANAGED's Python base environments
-  ansible.builtin.file:
-    path: "/usr/lib/python{{ py3ver.stdout }}/EXTERNALLY-MANAGED"
-    state: "{{ 'absent' if not pip_externally_managed else 'touch' }}"
-  when: py3ver is defined and py3ver.stdout is version_compare('3.11', '>=')
+- ansible.builtin.include_tasks: pip_externally_managed.yml
 
 - name: Ensure Pip is installed.
   package:
     name: "{{ pip_package }}"
     state: present
+
+- ansible.builtin.include_tasks: pip_externally_managed.yml
 
 - name: Ensure pip_install_packages are installed.
   pip:
