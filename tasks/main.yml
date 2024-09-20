@@ -1,12 +1,8 @@
 ---
-- ansible.builtin.include_tasks: pip_externally_managed.yml
-
 - name: Ensure Pip is installed.
   package:
     name: "{{ pip_package }}"
     state: present
-
-- ansible.builtin.include_tasks: pip_externally_managed.yml
 
 - name: Ensure pip_install_packages are installed.
   pip:
@@ -16,4 +12,5 @@
     state: "{{ item.state | default(omit) }}"
     extra_args: "{{ item.extra_args | default(omit) }}"
     executable: "{{ item.virtualenv | default(false) | ternary(omit, pip_executable) }}"
+    break_system_packages: "{{ pip_break_system_packages }}"
   loop: "{{ pip_install_packages }}"
