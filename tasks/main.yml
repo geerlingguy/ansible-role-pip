@@ -12,5 +12,5 @@
     state: "{{ item.state | default(omit) }}"
     extra_args: "{{ item.extra_args | default(omit) }}"
     executable: "{{ item.virtualenv | default(false) | ternary(omit, pip_executable) }}"
-    break_system_packages: "{{ pip_break_system_packages }}"
+    break_system_packages: "{{ item.break_system_packages | default(pip_break_system_packages) }}"
   loop: "{{ pip_install_packages }}"
