@@ -1,9 +1,9 @@
 ---
-- name: Remove externally managed from Debian 12
-  ansible.builtin.import_tasks: debian12.yml
+- name: Ensure python virtualenv is installed (via apt).
+  ansible.builtin.apt:
+    name: python3-venv
   when:
     - ansible_distribution == "Debian"
-    - ansible_distribution_major_version|int >= 12
 
 - name: Ensure Pip is installed.
   package:
@@ -18,4 +18,6 @@
     state: "{{ item.state | default(omit) }}"
     extra_args: "{{ item.extra_args | default(omit) }}"
     executable: "{{ item.virtualenv | default(false) | ternary(omit, pip_executable) }}"
+    virtualenv_site_packages: "{{ item.virtualenv_site_packages | default(omit) }}"
+    break_system_packages: "{{ item.break_system_packages | default(omit) }}"
   loop: "{{ pip_install_packages }}"
