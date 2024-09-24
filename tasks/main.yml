@@ -1,14 +1,13 @@
 ---
-- name: Ensure python virtualenv is installed (via apt).
-  ansible.builtin.apt:
-    name: python3-venv
-  when:
-    - ansible_distribution == "Debian"
-
 - name: Ensure Pip is installed.
   package:
     name: "{{ pip_package }}"
     state: present
+
+- name: Ensure virtualenv is installed (via pip)
+  pip:
+    name: virtualenv
+    executable: "{{ pip_executable }}"
 
 - name: Ensure pip_install_packages are installed.
   pip:
