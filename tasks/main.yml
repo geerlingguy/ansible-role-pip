@@ -8,6 +8,7 @@
   pip:
     name: virtualenv
     executable: "{{ pip_executable }}"
+    break_system_packages: true
 
 - name: Ensure pip_install_packages are installed.
   pip:
