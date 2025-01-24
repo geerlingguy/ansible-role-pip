@@ -4,11 +4,19 @@
     name: "{{ pip_package }}"
     state: present
 
+
 - name: Ensure virtualenv is installed (via pip)
   pip:
     name: virtualenv
     executable: "{{ pip_executable }}"
     break_system_packages: true
+
+
+- name: Remove EXTERNALLY-MANAGED
+  ansible.builtin.file:
+    path: /usr/lib/python3.{{ ansible_python.version.minor }}/EXTERNALLY-MANAGED
+    state: absent
+
 
 - name: Ensure pip_install_packages are installed.
   pip:
