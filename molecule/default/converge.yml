@@ -13,7 +13,9 @@
 
   pre_tasks:
     - name: Update apt cache.
-      apt: update_cache=true cache_valid_time=600
+      apt:
+        update_cache: true
+        cache_valid_time: 600
       when: ansible_facts.os_family == 'Debian'
 
     - name: Set package name for older OSes.
