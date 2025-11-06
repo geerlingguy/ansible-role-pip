@@ -13,11 +13,13 @@
 
   pre_tasks:
     - name: Update apt cache.
-      apt: update_cache=true cache_valid_time=600
+      ansible.builtin.apt:
+        update_cache: true
+        cache_valid_time: 600
       when: ansible_facts.os_family == 'Debian'
 
     - name: Set package name for older OSes.
-      set_fact:
+      ansible.builtin.set_fact:
         pip_package: python-pip
       when: >
         (ansible_facts.os_family == 'RedHat') and (ansible_facts.distribution_major_version | int < 8)
