@@ -13,13 +13,9 @@
 
   pre_tasks:
     - name: Update apt cache.
-<<<<<<< HEAD
       ansible.builtin.apt:
         update_cache: true
         cache_valid_time: 600
-=======
-      apt: update_cache=true cache_valid_time=600
->>>>>>> 506fa00 (Attempt to fix ansible_facts deprecation warnings.)
       when: ansible_facts.os_family == 'Debian'
 
     - name: Set package name for older OSes.
