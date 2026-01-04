@@ -6,7 +6,7 @@
 
 - name: Remove EXTERNALLY-MANAGED
   ansible.builtin.file:
-    path: /usr/lib/python3.{{ ansible_facts.python.version.minor }}/EXTERNALLY-MANAGED
+    path: "/usr/lib/python3.{{ ansible_facts['python']['version']['minor'] }}/EXTERNALLY-MANAGED"
     state: absent
 
 - name: Ensure pip_install_packages are installed.
